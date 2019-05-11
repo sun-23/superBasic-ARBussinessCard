@@ -13,6 +13,7 @@
 		A4022A6B228658D200A30D62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4022A69228658D200A30D62 /* Main.storyboard */; };
 		A4022A6D228658D300A30D62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4022A6C228658D300A30D62 /* Assets.xcassets */; };
 		A4022A70228658D300A30D62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4022A6E228658D300A30D62 /* LaunchScreen.storyboard */; };
+		A40B316E2286FEF300F8E4F0 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40B316D2286FEF300F8E4F0 /* WebViewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A4022A6C228658D300A30D62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4022A6F228658D300A30D62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4022A71228658D300A30D62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A40B316D2286FEF300F8E4F0 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				A4022A63228658D200A30D62 /* AppDelegate.swift */,
 				A4022A65228658D200A30D62 /* art.scnassets */,
 				A4022A67228658D200A30D62 /* ViewController.swift */,
+				A40B316D2286FEF300F8E4F0 /* WebViewViewController.swift */,
 				A4022A69228658D200A30D62 /* Main.storyboard */,
 				A4022A6C228658D300A30D62 /* Assets.xcassets */,
 				A4022A6E228658D300A30D62 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4022A68228658D200A30D62 /* ViewController.swift in Sources */,
+				A40B316E2286FEF300F8E4F0 /* WebViewViewController.swift in Sources */,
 				A4022A64228658D200A30D62 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

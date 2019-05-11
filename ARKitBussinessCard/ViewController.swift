@@ -11,11 +11,15 @@ import SceneKit
 import ARKit
 import MessageUI
 import Contacts
+import WebKit
+import SpriteKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
+    
     let configuration = ARImageTrackingConfiguration()
     @IBOutlet var sceneView: ARSCNView!
+  
        var menuShown = false
    
     
@@ -96,6 +100,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             sendEmailTo("twinsamson@gmail.com")
         case "saveIcon":
             saveContactToAddressBook()
+        case "GitHub":
+            WebViewGitHub()
+            
        
         default: ()
         }
@@ -233,8 +240,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     
     
+    func WebViewGitHub()  {
+        
+        print("YouClickWeb")
+        performSegue(withIdentifier: "GoToWeb", sender: nil)
+       
     
-}// main class
+    }
+    
+    
+    }// main class
 
 
 
