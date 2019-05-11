@@ -18,6 +18,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     
     let configuration = ARImageTrackingConfiguration()
+    var web = false
     @IBOutlet var sceneView: ARSCNView!
   
        var menuShown = false
@@ -78,6 +79,26 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             // RootNode
             guard let RootNode = sceneView.scene.rootNode.childNode(withName: "RootNode", recursively: false) else { return }
             
+            guard let imageAnchor = anchor as? ARImageAnchor else {return}
+            
+            let physicalWidth = imageAnchor.referenceImage.physicalSize.width
+            let physicalHeight = imageAnchor.referenceImage.physicalSize.height
+            
+            let mainPlane = SCNPlane(width: physicalWidth, height: physicalHeight  )
+            
+            mainPlane.firstMaterial?.colorBufferWriteMask = .alpha
+            
+            let mainNode = SCNNode(geometry: mainPlane)
+            
+            mainNode.eulerAngles.x = -.pi / 2
+            node.addChildNode(mainNode)
+            
+            if !web {
+            
+            self.displayWebView(on: mainNode, xOffset: physicalWidth)
+                
+            }
+            
             RootNode.removeFromParentNode()
             node.addChildNode(RootNode)
             RootNode.isHidden = false
@@ -89,6 +110,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         //  find touchespoint in ar
+        // guard let RootNode = sceneView.scene.rootNode.childNode(withName: "RootNode", recursively: false) else { return }
         guard let currentTouchLocation = touches.first?.location(in: self.sceneView), let hitTestResult = self.sceneView.hitTest(currentTouchLocation, options: nil).first?.node.name else { return }
         
         switch hitTestResult {
@@ -101,10 +123,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         case "saveIcon":
             saveContactToAddressBook()
         case "GitHub":
-            WebViewGitHub()
             
-       
-        default: ()
+            web = true
+        
+           // WebViewGitHub()
+       default: ()
         }
         
         
@@ -246,6 +269,37 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         performSegue(withIdentifier: "GoToWeb", sender: nil)
        
     
+    }
+    
+    func displayWebView(on rootNode:SCNNode , xOffset:CGFloat){
+        print("Youclick")
+        
+        DispatchQueue.main.async {
+            
+            let request = URLRequest(url: URL(string: "https://github.com/sun-23")!)
+            
+            let webView = UIWebView(frame: CGRect(x: 0, y: 0, width: 400, height: 672))
+            webView.loadRequest(request)
+            
+            let webViewPlane = SCNPlane(width: xOffset , height: xOffset * 1.4)
+            webViewPlane.cornerRadius = 0.005
+            
+            let webViewNode = SCNNode(geometry: webViewPlane)
+            
+            webViewNode.geometry?.firstMaterial?.diffuse.contents = webView
+            
+            rootNode.addChildNode(webViewNode)
+            webViewNode.runAction(.sequence( [
+                .wait(duration: 3.0),
+                .fadeOpacity(to: 1.0, duration: 1.5),
+                .moveBy(x: xOffset * 1.1 , y: 0, z: 0, duration: 1.5),
+                .moveBy(x: 0, y: 0, z: 0, duration: 0.2)
+                ])
+            )
+            
+        }
+        
+        
     }
     
     
