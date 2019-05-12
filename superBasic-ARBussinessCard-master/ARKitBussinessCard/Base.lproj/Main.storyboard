@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="ARKitBussinessCard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U0K-SW-4ec">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                            </arscnView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <segue destination="dJ9-GU-pGv" kind="show" identifier="GoToWeb" id="QZy-nq-vQd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="91.741071428571431"/>
+        </scene>
+        <!--Web View View Controller-->
+        <scene sceneID="pUx-RU-I2U">
+            <objects>
+                <viewController id="dJ9-GU-pGv" customClass="WebViewViewController" customModule="ARKitBussinessCard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sJY-67-Psb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9X6-ax-ZL4">
+                                <rect key="frame" x="9" y="832" width="69" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="85i-8q-AIl"/>
+                                    <constraint firstAttribute="height" constant="30" id="JE9-Ka-5QT"/>
+                                </constraints>
+                                <state key="normal" title="BackToAR"/>
+                                <connections>
+                                    <action selector="Back:" destination="dJ9-GU-pGv" eventType="touchUpInside" id="k0O-zg-C6J"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" identifier="BackToAR" id="zFe-U2-AHX"/>
+                                </connections>
+                            </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2b-eh-AXo">
+                                <rect key="frame" x="0.0" y="44" width="414" height="780"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h2b-eh-AXo" firstAttribute="top" secondItem="nNR-WL-CZW" secondAttribute="top" id="3n5-oD-uhX"/>
+                            <constraint firstItem="h2b-eh-AXo" firstAttribute="leading" secondItem="nNR-WL-CZW" secondAttribute="leading" id="Huf-LD-UiZ"/>
+                            <constraint firstItem="9X6-ax-ZL4" firstAttribute="top" secondItem="h2b-eh-AXo" secondAttribute="bottom" constant="8" id="Pwu-qM-A2p"/>
+                            <constraint firstItem="h2b-eh-AXo" firstAttribute="trailing" secondItem="nNR-WL-CZW" secondAttribute="trailing" id="XcF-qQ-LF2"/>
+                            <constraint firstItem="9X6-ax-ZL4" firstAttribute="bottom" secondItem="nNR-WL-CZW" secondAttribute="bottom" id="fu1-dh-eFa"/>
+                            <constraint firstItem="9X6-ax-ZL4" firstAttribute="leading" secondItem="nNR-WL-CZW" secondAttribute="leading" constant="9" id="i1Y-wA-B74"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nNR-WL-CZW"/>
+                    </view>
+                    <connections>
+                        <outlet property="WebView" destination="h2b-eh-AXo" id="jyM-DJ-MsX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KBF-PY-Jqj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="818.84057971014499" y="92.410714285714278"/>
+        </scene>
+    </scenes>
+</document>
